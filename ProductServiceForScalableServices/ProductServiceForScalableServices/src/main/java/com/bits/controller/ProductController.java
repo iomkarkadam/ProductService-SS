@@ -19,9 +19,9 @@ public class ProductController {
         return "successfully saved";
     }
 
-    @GetMapping
-    public String getProduct( @PathVariable  Long productId){
-        productService.getProduct(productId);
-        return "successfully saved";
+    @GetMapping("/{productId}")
+    public ProductDTO getProduct( @PathVariable  Long productId){
+        ProductDTO productDTO= productService.getProduct(productId);
+        return productDTO;
     }
 }

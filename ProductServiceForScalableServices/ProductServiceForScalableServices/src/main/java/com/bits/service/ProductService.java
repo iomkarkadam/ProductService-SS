@@ -25,7 +25,10 @@ public class ProductService {
         Optional<Product> optionalProduct= productRepository.findById(productId);
         Product product= optionalProduct.get();
 
-        return new ProductDTO(product.getProductName(),product.getProductPrice());
+        ProductDTO productDTO= new ProductDTO();
+        productDTO.setProductName(product.getProductName());
+        productDTO.setProductPrice(product.getProductPrice());
+        return productDTO;
     }
 
 
